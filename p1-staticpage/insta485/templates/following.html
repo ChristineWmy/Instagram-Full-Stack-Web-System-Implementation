@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>insta485</title>
+	<!-- <link rel="stylesheet" type="text/css" href="/css/user.css"> -->
+</head>
+
+<body>
+	<div class = "header">
+		<div class = header_left_logo>
+			<a href="/">
+				<img src="/images/insta485logo.png" class="logo" width="40" height="40" alt="inslogo">
+			</a>
+		</div>
+		<div class="header_left_title">Insta 485</div>
+		<div class="header_right_explore">
+			<a href="/explore/" class="link_to_explore">explore</a>
+			<a href="/u/{{logname}}/" class="link_to_name">{{logname}}</a>
+		</div>
+	</div>
+
+	<div class="contents">
+		<p>Following</p>
+		{% for follow in following %}
+			<img src={{follow.user_img_url}} alt="image">
+			<a href="/u/{{follow.username}}/">{{follow.username}}</a>
+			<p>
+				{% if follow.logname_follows_username == true %} following
+				{% elif follow.username != logname %} 
+				{% endif %}
+			</p>
+		{% endfor %}
+	</div>
+</body>

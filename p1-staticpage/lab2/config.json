@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Spongebob Squarepants",
+        "courses": [
+            101,
+            183,
+            280,
+            281
+        ]
+    },
+    {
+        "name": "Wonder Woman",
+        "courses": [
+            370,
+            481,
+            482,
+            484
+        ]
+    }
+]

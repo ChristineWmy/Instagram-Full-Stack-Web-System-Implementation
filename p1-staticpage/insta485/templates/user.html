@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>insta485</title>
+	<!-- <link rel="stylesheet" type="text/css" href="/css/user.css"> -->
+</head>
+
+<body>
+	<div class = "header">
+		<div class = header_left_logo>
+			<a href="/">
+				<img src="/images/insta485logo.png" class="logo" width="40" height="40" alt="inslogo">
+			</a>
+		</div>
+		<div class="header_left_title">Insta 485</div>
+		<div class="header_right_explore">
+			<a href="/explore/" class="link_to_explore">explore</a>
+			<a href="/u/{{logname}}/" class="link_to_name">{{logname}}</a>
+		</div>
+	</div>
+
+	<div class="contents">
+		<p class="user_name">{{username}}</p>
+		<p>
+			{% if logname_follows_username == true %} following
+			{% elif logname_follows_username == false %} not following
+			{% elif logname_follows_username == username %} 
+			{% endif %}
+		</p>
+		<p class="user_details">{{total_posts}} 
+			{% if total_posts == 1 %} post
+			{% else %} posts
+			{% endif %}
+			<b><a href="/u/{{username}}/followers/">{{followers}} 
+				{% if followers == 1 %} follower
+				{% else %} followers
+				{% endif %}
+			</a></b>
+			<b><a href="/u/{{username}}/following/">{{following}} 
+				{% if total_posts == 1 %} following
+				{% else %} followings
+				{% endif %}
+			</a></b>
+		</p>
+		<p class="user_details">{{fullname}}</p>
+		{% for post in posts %}
+		<a href="/p/{{post.postid}}/">
+			<img src={{post.img_url}} width = "400" class="pictures" alt="a picture">
+		</a>
+		{% endfor %}
+	</div>
+</body>
+</html>
