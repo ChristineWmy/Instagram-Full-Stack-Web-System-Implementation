@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>insta485</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/accounts.css">
+</head>
+
+
+<body>
+  <div class = "header">
+    <div class = header_left_logo>
+      <a href="/">
+        <img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+      </a>
+    </div>
+    <div class="header_left_title">Insta 485</div>
+    <div class="header_right_explore">
+      <p>Login</p>
+    </div>
+  </div>
+
+  <form action="/accounts/?target={{ url_for('show_index') }}" method="post" enctype="multipart/form-data">
+    <input type="text" name="username" placeholder="username" required/><br><br>
+    <input type="password" name="password" placeholder="password" required/><br><br>
+    <input type="submit" value="login"/>
+    <input type="hidden" name="operation" value="login"/>
+  </form>
+
+  <p class="create_word">Don't have an account?</p>
+  <a href="/accounts/create/" class="create_link">Sign up</a>
+
+</body>
+
+</html>

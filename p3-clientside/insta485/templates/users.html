@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>insta485</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/user.css">
+</head>
+
+<body>
+	<div class = "header">
+		<div class = header_left_logo>
+			<a href="/">
+				<img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+			</a>
+		</div>
+		<div class="header_left_title">Insta 485</div>
+		<div class="header_right_explore">
+			<a href="/users/{{logname}}/" class="link_to_name">{{logname}}</a>
+			<a href="/explore/" class="link_to_explore">explore</a>
+		</div>
+	</div>
+
+	<div class="contents">
+		<p class="user_name">{{username}}</p>
+		<div>
+			{% if logname_follows_username == true %} 
+			following
+			<!-- unfollow button -->
+			<form action="/following/?target={{url_for('show_user', username=username)}}" method="post" enctype="multipart/form-data">
+			    <input type="submit" name="unfollow" value="unfollow"/>
+			    <input type="hidden" name="username" value="{{username}}"/>
+			    <input type="hidden" name="operation" value="unfollow"/>
+			</form>
+
+			{% elif logname != username %} 
+			not following
+			
+			<!-- follow button -->
+			<form action="/following/?target={{url_for('show_user', username=username)}}" method="post" enctype="multipart/form-data">
+			    <input type="submit" name="follow" value="follow"/>
+			    <input type="hidden" name="username" value="{{username}}"/>
+			    <input type="hidden" name="operation" value="follow"/>
+			</form>
+
+			{% elif logname == username %} 
+			<a href="/accounts/edit/"><b>Edit profile</b></a>
+			<!-- logout button -->
+			<form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+			    <input type="submit" name="logout" value="Logout"/>
+			</form>
+
+			{% endif %}
+		</div>
+
+		<p class="user_details">{{total_posts}} 
+			{% if total_posts == 1 %} post
+			{% else %} posts
+			{% endif %}
+			<b><a href="/users/{{username}}/followers/">{{followers}} 
+				{% if followers == 1 %} follower
+				{% else %} followers
+				{% endif %}
+			</a></b>
+			<b><a href="/users/{{username}}/following/">{{following}} 
+				{% if total_posts == 1 %} following
+				{% else %} followings
+				{% endif %}
+			</a></b>
+		</p>
+
+		<p class="user_details">{{fullname}}</p>
+		{% if logname == username %}
+		
+		<!-- upload files button -->
+		<form action="/posts/?target={{url_for('show_user', username=username)}}/" method="post" enctype="multipart/form-data">
+		    <input type="file" name="file" accept="image/*" required/>
+		    <input type="submit" name="create_post" value="upload new post"/>
+		    <input type="hidden" name="operation" value="create"/>
+		</form>
+		{% endif %}
+
+		{% for post in posts %}
+		<a href="/posts/{{post.postid}}/">
+			<img src={{post.img_url}} width = "400" class="pictures" alt="a picture">
+		</a>
+		{% endfor %}
+	</div>
+</body>
+</html>

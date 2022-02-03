@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>insta485</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/accounts.css">
+</head>
+
+
+<body>
+  <div class = "header">
+      <div class = header_left_logo>
+        <a href="/">
+          <img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+        </a>
+      </div>
+      <div class="header_left_title">Insta 485</div>
+      <div class="header_right_explore">
+          <a href="/users/{{username}}/" class="link_to_name">{{username}}</a>
+          <a href="/explore/" class="link_to_explore">explore</a>
+      </div>
+  </div>
+
+  <div class="info">
+    <a href="/users/{{username}}/" class="username">{{username}}</a>
+  </div>
+
+  <form action="/accounts/?target={{ url_for('create') }}" method="post" enctype="multipart/form-data">
+    <input type="submit" name="delete" value="confirm delete account"/>
+    <input type="hidden" name="operation" value="delete"/>
+  </form>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>insta485</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/accounts.css">
+</head>
+
+
+<body>
+  <div class = "header">
+      <div class = header_left_logo>
+        <a href="/">
+          <img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+        </a>
+      </div>
+      <div class="header_left_title">Insta 485</div>
+      <div class="header_right_explore">
+          <a href="/users/{{logname}}/" class="link_to_name">{{logname}}</a>
+          <a href="/explore/" class="link_to_explore">explore</a>
+      </div>
+  </div>
+  <div class="info">
+    <a href="/users/{{logname}}/">
+        <img src={{img_url}} class="profile_picture" width="40" alt="a picture">
+    </a>
+    <a href="/users/{{logname}}/" class="username">{{logname}}</a>
+  </div>
+
+  <form action="/accounts/?target={{ url_for('edit') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*"/><br><br>
+    <input type="text" name="fullname" value="{{fullname}}" required/><br><br>
+    <input type="text" name="email" value="{{email}}" required/><br><br>
+    <input type="submit" name="update" value="submit"/>
+    <input type="hidden" name="operation" value="edit_account"/>
+  </form>
+
+  <a href="/accounts/password/" class="create_link" style="margin-left: 150px;">Change password</a><br><br>
+  <a href="/accounts/delete/" class="create_link" style="margin-left: -120px">Delete account</a>
+
+
+</body>
+
+</html>

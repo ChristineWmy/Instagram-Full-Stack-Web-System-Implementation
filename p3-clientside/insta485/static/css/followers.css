@@ -1,0 +1,118 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	/*position: absolute;*/
+	display: block;
+	top: 0px;
+	left: 0px;
+	width: 1150px;
+	height: 70px;
+	/*background-color: skyblue;*/
+	margin-left: 50px;
+	/*z-index: 101;*/
+	border-bottom: 2px solid grey;
+}
+
+.header_left_logo {
+	float: left;
+	width: 70px;
+	height: 50px;
+	/*background-color: rgb(255, 0, 0);*/
+	border-right: 2px solid grey;
+	margin-top: 10px;
+}
+.header_left_logo .logo {
+	float: left;
+	margin-top: 4px;
+	margin-left: 14px;
+	border: none;
+}
+.header_left_title {
+	float: left;
+	font-family: Cursive;
+	font-size: 30px;
+	width: 150px;
+	/*background-color: yellow;*/
+	margin-left: 20px;
+	margin-top: 15px;
+}
+.header_right_explore .link_to_explore{
+	float:  right;
+	width: 85px;
+	height: 25px;
+	/*background-color: yellow;*/
+	cursor: pointer;
+	text-decoration: none;
+	margin-top: 25px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-family: Sans-serif;
+	border-right: 2px solid grey;
+	color:  black;
+}
+.header_right_explore .link_to_name {
+	float: right;
+	width: 100px;
+	height: 25px;
+	/*background-color: yellow;*/
+	cursor: pointer;
+	text-decoration: none;
+	margin-top: 25px;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-size: 20px;
+	font-family: Sans-serif;
+	color: black;
+}
+
+.followers_word {
+	font-size: 28px;
+	margin-left: 150px;
+	margin-top: 60px;
+	width: 150px;
+	height: 50px;
+	/*background-color: yellow;*/
+}
+.user_space {
+	width: 850px; 
+	/*background-color: blue; */
+	height: 80px;
+	margin-top: 30px;
+	margin-left: 150px;
+	border: 2px solid grey;
+}
+.user_space img {
+	float: left;
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 40px;
+	height: 55px;
+}
+.user_space a {
+	cursor: pointer;
+    text-decoration: none;
+    float: left;
+    margin-left: 15px;
+    margin-top: 30px;
+    color: black;
+    font-size: 18px;
+}
+
+.follow_space {
+	float: right;
+	margin-right: 60px;
+	margin-top: 30px;
+	/*background-color: green;*/
+}
+.follow_word {
+	float: left;
+	/*background-color: red;*/
+}
+.user_space form {
+	float: right;
+	margin-left: 20px;
+	/*margin-top: 30px;*/
+}

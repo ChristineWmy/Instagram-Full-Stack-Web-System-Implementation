@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>insta485</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+
+
+<body>
+  <div class = "header">
+    <div class = header_left_logo>
+      <a href="/">
+        <img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+      </a>
+    </div>
+    <div class="header_left_title">Insta 485</div>
+    <div class="header_right_explore">
+      <a href="/users/{{logname}}/" class="link_to_name">{{logname}}</a>
+      <a href="/explore/" class="link_to_explore">explore</a>
+    </div>
+  </div>
+
+  <div class="inner">
+
+ <!--  {% for post in posts %}
+    <article class="instablog">
+      <div>
+        <a href="/users/{{post.owner}}/">
+          <img class="propic" alt="awdeorio profile picture" src="/uploads/{{post.owner_img_url}}">
+        </a>
+        <a href="/users/{{post.owner}}/" style="padding:30px 0px;">{{post.owner}}</a>
+        <a href="/posts/{{post.postid}}/" style="float:right;padding:30px 15px;">{{post.timestamp}}</a>
+      </div>
+
+      <div> <img src="/uploads/{{post.img_url}}" alt="picture 3" style="width: 400px;"> </div>
+      {% if post.likes == 1 %}
+        <div style="padding:30px 15px;">{{post.likes}} like</div>
+      {% else %}
+        <div style="padding:30px 15px;">{{post.likes}} likes</div>
+      {% endif %}
+
+      {% for comment in post.comments %}
+
+      <p>
+        <a href="/users/{{comment.owner}}/" style="float:left; line-height:5px;margin-top: -10px;font-weight: bold">{{comment.owner}}</a>
+        {{comment.text}}<br>
+      </p>
+
+      {% endfor %}
+
+      {% if post.like_or_not == 0 %}
+      <form action="/likes/?target={{ url_for('show_index') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="operation" value="like"/>
+        <input type="hidden" name="postid" value="{{post.postid}}"/>
+        <input type="submit" name="like" value="like"/>
+      </form>
+      {% else %}
+      <form action="/likes/?target={{ url_for('show_index') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="operation" value="unlike"/>
+        <input type="hidden" name="postid" value="{{post.postid}}"/>
+        <input type="submit" name="unlike" value="unlike"/>
+      </form>
+      {% endif %}
+
+
+      <form action="/comments/?target={{ url_for('show_index') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="operation" value="create"/>
+        <input type="hidden" name="postid" value="{{post.postid}}"/>
+        <input type="text" name="text" required/>
+        <input type="submit" name="comment" value="comment"/>
+      </form>
+
+    </article>
+  {% endfor %} -->
+
+  </div> 
+  <div id="reactEntry">
+    Loading ...
+  </div>
+  <!-- Load JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>insta485</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/followers.css">
+</head>
+
+<body>
+	<div class = "header">
+		<div class = header_left_logo>
+			<a href="/">
+				<img src="/static/images/logo.jpg" class="logo" width="55" height="40" alt="inslogo">
+			</a>
+		</div>
+		<div class="header_left_title">Insta 485</div>
+		<div class="header_right_explore">
+			<a href="/explore/" class="link_to_explore">explore</a>
+			<a href="/users/{{logname}}/" class="link_to_name">{{logname}}</a>
+		</div>
+	</div>
+
+	<div class="contents">
+		<div class="followers_word"><p>Following</p></div>
+		{% for follow in following %}
+		<div class="user_space" >
+			<img src={{follow.user_img_url}} alt="image">
+			<a href="/users/{{follow.username}}/" >{{follow.username}}</a>
+			<div class="follow_space">
+				{% if follow.logname_follows_username == true %} 
+				<div class="follow_word">following</div>
+				<!-- unfollow button -->
+				<form action="/following/?target={{ url_for('show_following', username=username)}}" method="post" enctype="multipart/form-data">
+				    <input type="submit" name="unfollow" value="unfollow"/>
+				    <input type="hidden" name="username" value="{{follow.username}}"/>
+				    <input type="hidden" name="operation" value="unfollow"/>
+				</form>
+
+				{% elif follow.username != logname %} 
+				<div class="follow_word">not following</div>
+				<!-- follow button -->
+				<form action="/following/?target={{ url_for('show_following', username=username)}}/" method="post" enctype="multipart/form-data">
+				    <input type="submit" name="follow" value="follow"/>
+				    <input type="hidden" name="username" value="{{follow.username}}"/>
+				    <input type="hidden" name="operation" value="follow"/>
+				</form>
+				
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+</body>

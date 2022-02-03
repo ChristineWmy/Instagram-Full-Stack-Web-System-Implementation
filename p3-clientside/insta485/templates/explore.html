@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>insta485</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/explore.css">
+</head>
+
+<body>
+	<div class = "header">
+	    <div class = header_left_logo>
+	      <a href="/">
+	        <img src="/static/images/logo.jpg" class="logo" width="50" height="40" alt="inslogo">
+	      </a>
+	    </div>
+	    <div class="header_left_title">Insta 485</div>
+	    <div class="header_right_explore">
+	    	<a href="/users/{{logname}}/" class="link_to_name">{{logname}}</a>
+	    	<a href="/explore/" class="link_to_explore">explore</a>
+	    </div>
+	</div>
+
+
+	<div class="contents">
+		<div class="discover_word"><p>Discover People</p></div>
+		{% for not_follow in not_following %}
+		<div class="user_space" >
+			<img src={{not_follow.user_img_url}} alt="image">
+			<a href="/users/{{not_follow.username}}/">{{not_follow.username}}</a>
+			<!-- follow button -->
+			<form action="/following/?target={{url_for('show_explore')}}" method="post" enctype="multipart/form-data">
+			    <input type="submit" name="follow" value="follow"/>
+			    <input type="hidden" name="username" value="{{not_follow.username}}"/>
+			    <input type="hidden" name="operation" value="follow"/>
+			</form>
+		</div>
+		{% endfor %}
+	</div>
+</body>
